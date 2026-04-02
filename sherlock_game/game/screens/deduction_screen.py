@@ -114,6 +114,9 @@ class DeductionScreen(Screen):
     GOLD = (0.88, 0.72, 0.28, 1)
 
     def on_enter(self):
+        Clock.schedule_once(self._deferred_enter, 0)
+
+    def _deferred_enter(self, dt):
         self.clear_widgets()
         with self.canvas.before:
             Color(*self.BG)

@@ -6,6 +6,7 @@ from kivy.uix.scrollview import ScrollView
 from kivy.uix.label import Label
 from kivy.uix.button import Button
 from kivy.graphics import Color, Rectangle
+from kivy.clock import Clock
 
 
 INSTRUCTIONS = """[b][color=e2b848]THE CASE[/color][/b]
@@ -43,6 +44,9 @@ class HowToPlayScreen(Screen):
     GOLD = (0.88, 0.72, 0.28, 1)
 
     def on_enter(self):
+        Clock.schedule_once(self._deferred_enter, 0)
+
+    def _deferred_enter(self, dt):
         self.clear_widgets()
         with self.canvas.before:
             Color(*self.BG)

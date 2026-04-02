@@ -55,7 +55,7 @@ class MenuScreen(Screen):
             Clock.schedule_once(lambda dt: self._build(), 0)
 
     def on_enter(self):
-        self._build()
+        Clock.schedule_once(lambda dt: self._build(), 0)
 
     def _build(self, *_):
         self.canvas.before.clear()

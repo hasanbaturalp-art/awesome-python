@@ -307,7 +307,7 @@ class SceneScreen(Screen):
     NAV_BG = (0.10, 0.07, 0.03, 1)
 
     def on_enter(self):
-        self._build()
+        Clock.schedule_once(lambda dt: self._build(), 0)
 
     def _build(self):
         from game.models.game_state import game_state, SCENES, CLUES

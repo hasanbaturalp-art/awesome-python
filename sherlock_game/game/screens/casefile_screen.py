@@ -7,6 +7,7 @@ from kivy.uix.label import Label
 from kivy.uix.button import Button
 from kivy.uix.widget import Widget
 from kivy.graphics import Color, Rectangle, RoundedRectangle
+from kivy.clock import Clock
 
 
 class CaseFileScreen(Screen):
@@ -15,6 +16,9 @@ class CaseFileScreen(Screen):
     GREEN = (0.40, 0.82, 0.45, 1)
 
     def on_enter(self):
+        Clock.schedule_once(self._deferred_enter, 0)
+
+    def _deferred_enter(self, dt):
         self.clear_widgets()
         with self.canvas.before:
             Color(*self.BG)
