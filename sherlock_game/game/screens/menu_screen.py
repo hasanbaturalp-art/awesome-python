@@ -48,7 +48,11 @@ class MenuScreen(Screen):
     def __init__(self, **kwargs):
         super().__init__(**kwargs)
         self._fog_particles = []
-        self.bind(size=self._build, pos=self._build)
+        self.bind(size=self._on_resize, pos=self._on_resize)
+
+    def _on_resize(self, *_):
+        if self.width > 0 and self.height > 0:
+            Clock.schedule_once(lambda dt: self._build(), 0)
 
     def on_enter(self):
         self._build()
