@@ -9,6 +9,7 @@ from kivy.config import Config
 Config.set("graphics", "width", "390")
 Config.set("graphics", "height", "844")
 Config.set("graphics", "resizable", True)
+Config.set("graphics", "multisamples", "0")
 
 
 class SherlockApp(App):
